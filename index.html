@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alu Metal Rača - PVC i ALU stolarija, vrata, roletne, komarnici</title>
+<meta name="description" content="SZR Alu-Metal iz Rače - proizvodnja i ugradnja PVC i aluminijumske stolarije, vrata, roletni i komarnika. Profili PROFINE KBE i ELVIAL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#373c4e;
+    --primary-dark:#262a37;
+    --primary-light:#4d546c;
+    --primary-soft:#eef0f4;
+    --primary-glow: rgba(55,60,78,0.16);
+    --text:#1d1f27;
+    --text-muted: rgba(29,31,39,0.66);
+    --text-faint: rgba(29,31,39,0.45);
+    --bg:#ffffff;
+    --bg-off:#f7f7f8;
+    --border: rgba(55,60,78,0.14);
+    --radius-btn: 6px;
+    --radius-card: 14px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Open Sans', sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block;}
+
+  a{text-decoration:none;color:inherit;}
+
+  ul{list-style:none;}
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Open Sans', sans-serif;
+    color:var(--text);
+    font-weight:800;
+    line-height:1.2;
+  }
+
+  h2{
+    font-size:clamp(1.9rem, 3.2vw, 2.6rem);
+    font-weight:800;
+  }
+
+  h3{
+    font-size:1.25rem;
+    font-weight:700;
+  }
+
+  p{
+    color:var(--text-muted);
+    max-width:65ch;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--primary);
+    background:var(--primary-soft);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:var(--radius-btn);
+    font-weight:700;
+    font-size:0.98rem;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, color 0.2s ease;
+    white-space:nowrap;
+  }
+
+  .btn-primary{
+    background:var(--primary);
+    color:#ffffff;
+  }
+  .btn-primary:hover{
+    background:var(--primary-dark);
+    box-shadow:0 12px 28px -12px var(--primary-glow);
+    transform:translateY(-2px);
+  }
+
+  .btn-outline{
+    background:transparent;
+    border-color:rgba(255,255,255,0.5);
+    color:#ffffff;
+  }
+  .btn-outline:hover{
+    background:rgba(255,255,255,0.12);
+    border-color:#ffffff;
+  }
+
+  .btn-dark-outline{
+    background:transparent;
+    border-color:var(--primary);
+    color:var(--primary);
+  }
+  .btn-dark-outline:hover{
+    background:var(--primary);
+    color:#fff;
+  }
+
+  /* HEADER */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--primary);
+  }
+  header.scrolled{
+    backdrop-filter:blur(10px);
+    background:rgba(55,60,78,0.92);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:84px;
+  }
+  .logo img{
+    height:34px;
+    width:auto;
+  }
+  nav.desktop-nav{
+    display:flex;
+    align-items:center;
+    gap:36px;
+  }
+  nav.desktop-nav a{
+    color:#ffffff;
+    font-weight:600;
+    font-size:0.95rem;
+    opacity:0.88;
+    transition:opacity 0.2s;
+  }
+  nav.desktop-nav a:hover{opacity:1;}
+  .nav-cta{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:32px;
+    height:32px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    z-index:200;
+  }
+  .hamburger span{
+    display:block;
+    height:2px;
+    width:100%;
+    background:#ffffff;
+    transition:all 0.25s ease;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-nav{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:var(--primary-dark);
+    z-index:150;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.25s ease;
+  }
+  .mobile-nav.open{
+    opacity:1;
+    visibility:visible;
+  }
+  .mobile-nav a{
+    color:#fff;
+    font-size:1.3rem;
+    font-weight:700;
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    color:#ffffff;
+    background:
+      linear-gradient(160deg, rgba(37,40,54,0.92) 0%, rgba(55,60,78,0.78) 55%, rgba(55,60,78,0.9) 100%),
+      url('assets/slika20.jpg') center/cover no-repeat;
+    padding-top:120px;
+    padding-bottom:120px;
+  }
+  .hero-content{
+    max-width:680px;
+  }
+  .hero h1{
+    color:#ffffff;
+    font-size:clamp(2.4rem, 5.4vw, 3.8rem);
+    font-weight:800;
+    margin-bottom:20px;
+  }
+  .hero p{
+    color:rgba(255,255,255,0.85);
+    font-size:1.15rem;
+    max-width:52ch;
+    margin-bottom:36px;
+  }
+
+  /* PAIN INTRO */
+  .pain{
+    padding-top:80px;
+    padding-bottom:80px;
+    background:var(--bg-off);
+    border-bottom:1px solid var(--border);
+  }
+  .pain-inner{
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .pain p{
+    max-width:none;
+    font-size:1.15rem;
+    color:var(--text);
+    font-weight:500;
+  }
+
+  /* SECTION GENERIC */
+  section{
+    padding-top:96px;
+    padding-bottom:96px;
+  }
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head.center{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+  }
+
+  /* SERVICES */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .service-card{
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    overflow:hidden;
+    background:#fff;
+    transition:box-shadow 0.25s ease, transform 0.25s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .service-card:hover{
+    box-shadow:0 24px 48px -24px var(--primary-glow);
+    transform:translateY(-4px);
+  }
+  .service-media{
+    height:190px;
+    background:var(--primary-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .service-media img{
+    height:100%;
+    width:100%;
+    object-fit:contain;
+    padding:14px;
+  }
+  .service-media.photo img{
+    object-fit:cover;
+    padding:0;
+  }
+  .placeholder-block{
+    height:100%;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-soft);
+    color:var(--text-faint);
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:12px;
+  }
+  .service-body{
+    padding:24px 24px 28px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
+  .service-icon{
+    width:40px;
+    height:40px;
+    margin-bottom:14px;
+    color:var(--primary);
+  }
+  .service-body h3{margin-bottom:8px;}
+  .service-body p{font-size:0.95rem;margin-bottom:0;}
+
+  /* PROFILES */
+  .profiles{
+    background:var(--bg-off);
+  }
+  .profiles-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+  }
+  .profile-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .profile-images{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  .profile-images .img-box{
+    background:var(--primary-soft);
+    border-radius:10px;
+    padding:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:150px;
+  }
+  .profile-images .img-box img{
+    max-height:100%;
+    object-fit:contain;
+  }
+  .profile-tag{
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--primary);
+  }
+
+  /* GALLERY */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .gallery-item{
+    border-radius:var(--radius-card);
+    overflow:hidden;
+    aspect-ratio:4/3;
+    background:var(--primary-soft);
+    border:1px solid var(--border);
+  }
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.4s ease;
+  }
+  .gallery-item:hover img{
+    transform:scale(1.06);
+  }
+
+  /* ABOUT */
+  .about{
+    background:var(--bg);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .about-media{
+    border-radius:var(--radius-card);
+    overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .about-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .about-text p{margin-bottom:18px;}
+  .about-list{
+    margin-top:24px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .about-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    color:var(--text);
+    font-weight:600;
+    font-size:0.98rem;
+  }
+  .about-list svg{
+    width:22px;
+    height:22px;
+    color:var(--primary);
+    flex-shrink:0;
+    margin-top:2px;
+  }
+
+  /* CTA CLOSE */
+  .cta-close{
+    background:var(--primary);
+    color:#fff;
+    text-align:center;
+  }
+  .cta-close h2{color:#fff;}
+  .cta-close p{
+    color:rgba(255,255,255,0.82);
+    margin:0 auto 32px;
+    text-align:center;
+  }
+
+  /* CONTACT */
+  .contact{
+    background:var(--bg-off);
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+    gap:56px;
+  }
+  .contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .contact-item{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .contact-item svg{
+    width:26px;
+    height:26px;
+    color:var(--primary);
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .contact-item h4{
+    font-size:1rem;
+    margin-bottom:4px;
+  }
+  .contact-item p{
+    margin:0;
+    font-size:0.95rem;
+  }
+  .contact-form{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    padding:36px;
+  }
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .contact-form input,
+  .contact-form textarea{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:13px 14px;
+    font-family:'Open Sans', sans-serif;
+    font-size:0.95rem;
+    color:var(--text);
+    background:var(--bg-off);
+    margin-bottom:16px;
+  }
+  .contact-form textarea{
+    min-height:120px;
+    resize:vertical;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus{
+    outline:none;
+    border-color:var(--primary);
+  }
+  .contact-form .btn{
+    width:100%;
+  }
+
+  /* FOOTER */
+  footer{
+    background:var(--primary-dark);
+    color:rgba(255,255,255,0.7);
+    padding-top:48px;
+    padding-bottom:32px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding-bottom:32px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    margin-bottom:24px;
+  }
+  .footer-top .logo img{height:28px;}
+  .footer-links{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    font-size:0.9rem;
+    color:rgba(255,255,255,0.7);
+  }
+  .footer-links a:hover{color:#fff;}
+  .footer-bottom{
+    font-size:0.82rem;
+    color:rgba(255,255,255,0.45);
+    text-align:center;
+  }
+
+  /* REVEAL */
+  .reveal{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.pre{
+    opacity:1;
+    transform:translateY(12px);
+  }
+  .reveal.pre.in-view{
+    transform:translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px){
+    nav.desktop-nav, .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .mobile-nav{display:flex;}
+    .services-grid{grid-template-columns:repeat(2, 1fr);}
+    .profiles-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2, 1fr);}
+    .about-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+
+  @media (max-width: 768px){
+    .wrap{padding-left:20px;padding-right:20px;}
+    section{padding-top:64px;padding-bottom:64px;}
+    .hero{padding-top:80px;padding-bottom:80px;}
+    .pain{padding-top:56px;padding-bottom:56px;}
+    .services-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2, 1fr);}
+    .form-row{grid-template-columns:1fr;}
+    .footer-top{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav-inner">
+    <a href="#pocetna" class="logo">
+      <img src="assets/logo.png" alt="Alu Metal logo">
+    </a>
+    <nav class="desktop-nav">
+      <a href="#usluge">Usluge</a>
+      <a href="#profili">Profili</a>
+      <a href="#galerija">Naši radovi</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#kontakt" class="btn btn-primary">Zatraži besplatnu ponudu</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Otvori meni">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#usluge">Usluge</a>
+  <a href="#profili">Profili</a>
+  <a href="#galerija">Naši radovi</a>
+  <a href="#o-nama">O nama</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="#kontakt" class="btn btn-outline">Zatraži besplatnu ponudu</a>
+</div>
+
+<section class="hero" id="pocetna">
+  <div class="wrap hero-content">
+    <h1>Stolarija koja izdrži svaku zimu i svako leto u Šumadiji</h1>
+    <p>Pravimo i ugrađujemo PVC i aluminijumsku stolariju, vrata, roletne i komarnike u Rači i okolini. Radimo po meri, sa profilima koje biramo pažljivo, ne po najnižoj ceni.</p>
+    <a href="#kontakt" class="btn btn-primary">Zatraži besplatnu ponudu</a>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="wrap pain-inner">
+    <p>Stari prozori puštaju hladnoću, vrata škripe, a računi za grejanje rastu iz godine u godinu. Ako menjaš stolariju, biraš je jednom na dugi niz godina - zato profil, ugradnja i majstor moraju biti dobri od prve.</p>
+  </div>
+</section>
+
+<section id="usluge">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Šta radimo</span>
+      <h2>Stolarija, vrata i roletne po tvojoj meri</h2>
+      <p>Sve pravimo po dimenzijama tvog objekta, od stana u zgradi do porodične kuće ili poslovnog prostora.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-media">
+          <img src="assets/76-md-copy-01.png" alt="Presek PVC prozorskog profila u beloj boji">
+        </div>
+        <div class="service-body">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          <h3>PVC prozori i vrata</h3>
+          <p>Toplotna i zvučna izolacija na visokom nivou, uz profil koji ne žuti i ne deformiše se tokom godina.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-media">
+          <img src="assets/smart-aluminium-windows-1024x683-1-300x200.png" alt="Aluminijumski prozor sa tamnim ramom">
+        </div>
+        <div class="service-body">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 3v18M16 3v18"/></svg>
+          <h3>ALU prozori i fasadna stolarija</h3>
+          <p>Aluminijumski profili za veće staklene površine, poslovne prostore i moderne fasade koje treba da traju.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-media">
+          <div class="placeholder-block">FOTOGRAFIJA<br>SEGMENTNIH VRATA</div>
+        </div>
+        <div class="service-body">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="14" x2="20" y2="14"/></svg>
+          <h3>Segmentna i rolo garažna vrata</h3>
+          <p>Ugrađujemo garažna vrata koja štede prostor i drže toplotu, uz tih pogon po želji.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-media">
+          <div class="placeholder-block">FOTOGRAFIJA<br>ULAZNIH VRATA</div>
+        </div>
+        <div class="service-body">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1"/><circle cx="15" cy="12" r="0.8"/></svg>
+          <h3>Ulazna i unutrašnja vrata</h3>
+          <p>Radimo vrata za stanove, kuće i poslovne objekte, sa fokusom na sigurnost i preciznu ugradnju.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-media">
+          <div class="placeholder-block">FOTOGRAFIJA<br>ROLETNI</div>
+        </div>
+        <div class="service-body">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+          <h3>Roletne</h3>
+          <p>Dodatna zaštita od sunca, hladnoće i buke, uskladiva sa svakim tipom prozora koji ugrađujemo.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-media">
+          <div class="placeholder-block">FOTOGRAFIJA<br>KOMARNIKA</div>
+        </div>
+        <div class="service-body">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="16" y1="4" x2="16" y2="20"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+          <h3>Komarnici</h3>
+          <p>Fiksni, rolo ili plise komarnici, izrađeni tačno po meri tvog prozora ili vrata.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="profili" class="profiles">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Materijali</span>
+      <h2>Radimo isključivo sa proverenim profilima</h2>
+      <p>Profil je ono što se ne vidi kad se prozor zatvori, ali se oseti svake zime. Zato biramo PROFINE KBE i ELVIAL.</p>
+    </div>
+    <div class="profiles-grid">
+
+      <div class="profile-card">
+        <span class="profile-tag">PVC profil</span>
+        <h3>PROFINE KBE</h3>
+        <p>Nemački PVC sistem sa višekomornom konstrukcijom, koji drži toplotu unutra i hladnoću napolju, godinama bez deformacije.</p>
+        <div class="profile-images">
+          <div class="img-box"><img src="assets/76-md-copy-01.png" alt="Presek PROFINE KBE PVC profila u beloj boji"></div>
+          <div class="img-box"><img src="assets/76-aluclip.png" alt="Presek PVC profila sa aluklip lajsnom u tamnoj boji"></div>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <span class="profile-tag">Aluminijumski profil</span>
+        <h3>ELVIAL</h3>
+        <p>Grčki aluminijumski sistem sa termičkim prekidom, za veće zastakljene površine i objekte kojima treba čvrstina.</p>
+        <div class="profile-images">
+          <div class="img-box"><img src="assets/Elvial-4600-copy-01.png" alt="Presek ELVIAL aluminijumskog profila sa termičkim prekidom"></div>
+          <div class="img-box"><img src="assets/A58D5BB4-EED1-432B-AA53-A36E119107DD-e1623625706948.jpeg" alt="RAL karta boja za izbor završne obrade profila"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="galerija">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Naši radovi govore umesto nas</h2>
+      <p>Nekoliko objekata na kojima smo radili ugradnju stolarije i fasadnih rešenja.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/slika6.jpg" alt="Poslovni objekat Auto centar Đoković sa ugrađenim aluminijumskim vratima i prozorima">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/slika20.jpg" alt="Magacinski objekat sa tamnom fasadom i ugrađenim aluminijumskim prozorom">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/Slika-za-mail-e1573127377313.png" alt="Stambena zgrada sa ugrađenim PVC prozorima na fasadi">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/A58D5BB4-EED1-432B-AA53-A36E119107DD-e1623625706948.jpeg" alt="RAL karta boja koju koristimo za izbor nijanse profila">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="o-nama" class="about">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <img src="assets/slika20.jpg" alt="Objekat sa ugrađenom aluminijumskom stolarijom, primer rada Alu Metal">
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">O nama</span>
+      <h2>SZR Alu-Metal, iz Rače, za ceo region</h2>
+      <p>Alu Metal je zanatska radnja iz Rače koja se bavi izradom i ugradnjom PVC i aluminijumske stolarije. Ne prodajemo gotove pakete sa police - svaki prozor i svaka vrata se prave po meri objekta.</p>
+      <p>Radimo direktno sa vlasnicima kuća, stanova i poslovnih prostora, od prve mere do poslednjeg zaptivača. Nema posrednika i nema prepravki dogovora usput.</p>
+      <ul class="about-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Sopstvena proizvodnja PVC i ALU stolarije</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Profili PROFINE KBE i ELVIAL, provereni na terenu</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Ugradnja od strane naših majstora, ne podizvođača</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-close">
+  <div class="wrap">
+    <h2>Spreman si da promeniš stolariju</h2>
+    <p>Pošalji nam dimenzije ili nas pozovi, izlazimo na teren, merimo i dajemo ti konkretnu ponudu bez obaveze.</p>
+    <a href="#kontakt" class="btn btn-outline">Zatraži besplatnu ponudu</a>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Javi nam se, dogovorimo izlazak na teren</h2>
+      <p>Odgovaramo brzo i dolazimo na lice mesta da izmerimo tačno ono što ti treba.</p>
+
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div>
+          <h4>Telefon</h4>
+          <p>034/852-123 · 063/123-456</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <div>
+          <h4>Email</h4>
+          <p>info@alumetal.rs</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <h4>Adresa</h4>
+          <p>Kneza Milosa bb, 34210 Rača, Srbija</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <h4>Radno vreme</h4>
+          <p>Pon - Pet: 08 - 16h, Subota: 08 - 13h</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" action="#">
+      <div class="form-row">
+        <input type="text" placeholder="Ime i prezime" required>
+        <input type="tel" placeholder="Broj telefona" required>
+      </div>
+      <input type="email" placeholder="Email adresa" required>
+      <textarea placeholder="Opiši šta ti treba - broj prozora, vrata, roletne..."></textarea>
+      <button type="submit" class="btn btn-primary">Pošalji upit za ponudu</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-top">
+    <a href="#pocetna" class="logo">
+      <img src="assets/logo.png" alt="Alu Metal logo">
+    </a>
+    <div class="footer-links">
+      <a href="#usluge">Usluge</a>
+      <a href="#profili">Profili</a>
+      <a href="#galerija">Naši radovi</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    SZR Alu-Metal, Rača · Sva prava zadržana
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // Sticky header blur on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Scroll reveal
+  const revealTargets = document.querySelectorAll('.service-card, .profile-card, .gallery-item, .about-media, .about-text');
+  revealTargets.forEach(el => el.classList.add('reveal', 'pre'));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealTargets.forEach(el => observer.observe(el));
+  }
+</script>
+
+</body>
+</html>
