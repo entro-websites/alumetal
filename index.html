@@ -359,6 +359,67 @@
     border:1px solid var(--dark-line-strong);
     padding:48px;
   }
+  /* staklo u okviru: mat krila se otvore na učitavanju, odsjaj prelazi preko stakla */
+  .hero-sheen{
+    position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+    background:linear-gradient(155deg, rgba(221,230,252,0.07) 0%, rgba(221,230,252,0.02) 40%, rgba(139,161,242,0.05) 100%);
+    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .hero-sheen::after{
+    content:"";position:absolute;top:-20%;bottom:-20%;left:-40%;width:28%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.10) 45%, rgba(255,255,255,0.16) 50%, rgba(255,255,255,0.10) 55%, transparent);
+    transform:skewX(-18deg) translateX(0);
+    animation:hero-sheen 9s cubic-bezier(.45,.05,.3,1) 2.8s infinite;
+  }
+  @keyframes hero-sheen{
+    0%{transform:skewX(-18deg) translateX(0);}
+    22%,100%{transform:skewX(-18deg) translateX(560%);}
+  }
+
+  .hero-glass{position:absolute;inset:0;z-index:3;display:none;perspective:1800px;pointer-events:none;}
+  .js .hero-glass{display:flex;}
+  .hero-glass.done{display:none;}
+  .sash{
+    position:relative;flex:1;
+    border:8px solid transparent;
+    border-image:linear-gradient(150deg, #a3abbf, var(--anthracite-2) 45%, #262a36) 1;
+    background:linear-gradient(155deg, rgba(221,230,252,0.22) 0%, rgba(221,230,252,0.07) 38%, rgba(139,161,242,0.14) 100%);
+    -webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);
+    overflow:hidden;
+    transition:transform 1.4s cubic-bezier(.28,.86,.28,1), opacity 0.5s ease 0.9s;
+    will-change:transform;
+  }
+  .sash-l{transform-origin:left center;}
+  .sash-r{transform-origin:right center;}
+  .sash::after{ /* odsjaj na krilu */
+    content:"";position:absolute;top:-40%;left:-60%;width:60%;height:180%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+    transform:rotate(16deg) translateX(0);
+    transition:transform 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+  .hero-glass.is-armed .sash::after{transform:rotate(16deg) translateX(320%);}
+  .handle{
+    position:absolute;top:50%;z-index:2;width:8px;height:40px;margin-top:-20px;
+    background:linear-gradient(180deg, #c9cfdc, #5b6278);border-radius:4px;
+    transform-origin:center 6px;
+    transition:transform 0.4s cubic-bezier(.5,.05,.3,1);
+    box-shadow:0 1px 4px rgba(0,0,0,0.4);
+  }
+  .sash-l .handle{right:8px;}
+  .sash-r .handle{left:8px;}
+  .hero-glass.is-armed .handle{transform:rotate(90deg);}
+  .hero-glass.is-open .sash-l{transform:rotateY(84deg);opacity:0;}
+  .hero-glass.is-open .sash-r{transform:rotateY(-84deg);opacity:0;}
+  @media (max-width:768px){
+    .sash{border-width:4px;}
+    .sash-l .handle{right:4px;}
+    .sash-r .handle{left:4px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .js .hero-glass{display:none;}
+    .hero-sheen::after{animation:none;}
+  }
   @media (max-width:768px){
     .hero-measure{grid-template-columns:28px 1fr;column-gap:12px;}
     .hero-frame{padding:24px;}
@@ -916,6 +977,11 @@
 
           <div class="hero-frame" id="heroFrame">
             <div class="corners" aria-hidden="true"><i></i></div>
+            <div class="hero-sheen" aria-hidden="true"></div>
+            <div class="hero-glass" id="heroGlass" aria-hidden="true">
+              <div class="sash sash-l"><span class="handle"></span></div>
+              <div class="sash sash-r"><span class="handle"></span></div>
+            </div>
 
             <span class="hero-kicker mono">SZR Alu-Metal · Rača</span>
             <h1>Prozor se pravi po otvoru,<br class="br-sm"> <em>ne po katalogu</em></h1>
@@ -1593,6 +1659,14 @@
   measure();
   window.addEventListener('resize', measure);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+
+  // Staklo u herou: kvake se okrenu, krila se otvore ka unutra i nestanu
+  var glass = document.getElementById('heroGlass');
+  if(!reduce){
+    setTimeout(function(){ glass.classList.add('is-armed'); }, 600);
+    setTimeout(function(){ glass.classList.add('is-open'); }, 1050);
+    setTimeout(function(){ glass.classList.add('done'); }, 2600);
+  }
 
   // Termo presek: klizač od stare stolarije do novog profila
   var cutaway = document.getElementById('cutaway');
