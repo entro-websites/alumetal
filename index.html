@@ -431,9 +431,9 @@
     color:var(--signal-lite);margin-bottom:24px;
   }
   .hero-kicker::before{content:"";width:32px;height:1px;background:currentColor;}
-  .hero h1{max-width:16ch;}
-  .br-sm{display:none;}
-  @media (max-width:560px){.br-sm{display:inline;}}
+  /* h1 uvek u tacno dva reda: svaki red nowrap, velicina prati sirinu okvira */
+  .hero h1{container-type:inline-size;}
+  .hero h1 > span, .hero h1 > em{display:block;white-space:nowrap;font-size:min(1em, 10.7cqi);}
   .hero-body{
     display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;
     margin-top:40px;padding-top:32px;border-top:1px solid var(--dark-line);
@@ -984,7 +984,7 @@
             </div>
 
             <span class="hero-kicker mono">SZR Alu-Metal · Rača</span>
-            <h1>Prozor se pravi po otvoru,<br class="br-sm"> <em>ne po katalogu</em></h1>
+            <h1><span>Prozor po meri,</span> <em>ne po katalogu</em></h1>
 
             <div class="hero-body">
               <p>Izlazimo na teren, merimo svaki otvor i pravimo PVC ili aluminijumsku stolariju tačno po toj meri. Profili PROFINE KBE i ELVIAL, ugradnja naša.</p>
